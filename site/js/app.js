@@ -1,13 +1,22 @@
 var app = angular.module('MyAngularApp',[]);
 
-app.value('ModelVal',
-    {
+var FactoryFunction = function() {
+    return {
         foo: 'A value for foo',
         bar: 'A value for bar',
         baz: 'A value for baz',
         random: ''
-    }
-);
+    };
+};
+
+var AnotherFactoryFunction = function() {
+    return {
+        foo: 'A different value for foo',
+        bar: 'A different value for bar',
+        baz: 'A different value for baz',
+        random: ''
+    };
+};
 
 var SimpleControllerFunction = function($scope,someothername) {
     $scope.model = someothername;
@@ -32,4 +41,9 @@ var SimpleControllerFunction = function($scope,someothername) {
     $scope.newRandom = $scope.GenerateRandomNumber();
 };
 
-app.controller('SimpleController',['$scope','ModelVal',SimpleControllerFunction]);
+app.factory('ModelVal',FactoryFunction);
+app.factory('OtherModelVal',AnotherFactoryFunction);
+
+app.controller('SimpleControllerA',['$scope','ModelVal',SimpleControllerFunction]);
+app.controller('SimpleControllerB',['$scope','OtherModelVal',SimpleControllerFunction]);
+

@@ -19,7 +19,7 @@
 <body>
     <div class="container-fluid project-container well">
         <div class="row-fluid">
-            <div class="span6 well" ng-controller="SimpleController">
+            <div class="span6 well" ng-controller="SimpleControllerA">
                 <h3 style="text-align:center">Left Controller {{$id}}</h3>
                 <ul>
                     <li>model.foo = {{model.foo}}</li>
@@ -30,7 +30,7 @@
                 </ul>
                 <input ng-model="model.foo">
             </div>
-            <div class="span6 well" ng-controller="SimpleController">
+            <div class="span6 well" ng-controller="SimpleControllerB">
                 <h3 style="text-align:center">Right Controller {{$id}}</h3>
                 <ul>
                     <li>model.foo = {{model.foo}}</li>

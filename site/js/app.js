@@ -1,13 +1,14 @@
 var app = angular.module('MyAngularApp',[]);
 
 var DirectiveFactoryFunction = function() {
+    var DirectiveLinkFunction = function(scope,ele,attrs) {
+
+    };
+
     var DirectiveDefinitionObject = {
         restrict: 'E',
-        scope: {
-            localName:'@',
-            boundName:'='
-        },
-        templateUrl: './partials/dir.html'
+        template: '<span>{{randomString}}</span>',
+        link: DirectiveLinkFunction
     };
 
     return DirectiveDefinitionObject;

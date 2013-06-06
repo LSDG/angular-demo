@@ -21,11 +21,12 @@
         <div class="row-fluid">
             <div class="span8 offset2 well">
                 <input ng-model="len">
+                <input ng-model="colors">
             </div>
         </div>
         <div class="row-fluid">
             <div class="span8 offset2 well">
-                <random-text string-length="{{len}}"></random-text>
+                <random-text string-length="{{len}}" string-colors="{{colors}}"></random-text>
             </div>
         </div>
     </div>

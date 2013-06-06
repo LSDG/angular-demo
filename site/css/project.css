@@ -1,0 +1,12 @@
+.project-container {
+    position: fixed;
+    top:10%;
+    bottom:10%;
+    left:10%;
+    right:10%;
+}
+
+.ul-center {
+    postion:relative;
+    left:50%;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyAngularApp">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/project.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <script src="scripts/angular.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <div class="container-fluid project-container well"  ng-controller="SimpleController">
+        <div class="row-fluid">
+            <div class="span4 offset4">
+                <ul>
+                    <li>model.foo = {{model.foo}}</li>
+                    <li>model.baz = {{model.baz}}</li>
+                    <li>model.bar = {{model.bar}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

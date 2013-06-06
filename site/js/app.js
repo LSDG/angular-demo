@@ -2,37 +2,27 @@ var app = angular.module('MyAngularApp',[]);
 
 
 var SimpleControllerFunction = function($scope) {
-    $scope.model = {
-        foo: 'A value for foo',
-        bar: 'A value for bar',
-        baz: 'A value for baz'
+    $scope.settings = {
+        index:0
     };
-
-    $scope.className = 'red';
-    $scope.styleObj = {
-        color:'red'
+    $scope.anis = [
+        {name:'None', ani: {enter:'',leave:''}},
+        {name:'Fade', ani: {enter:'homefade-enter',leave:'homefade-leave'}},
+        {name:'Flip', ani: {enter:'homeflip-enter',leave:'homeflip-leave'}},
+        {name:'Slide', ani: {enter:'homeslide-enter',leave:'homeslide-leave'}},
+        {name:'Reverse Slide', ani: {enter:'homerslide-enter',leave:'homerslide-leave'}}
+    ];
+    $scope.sidebarItemClick = function(itemIndex) {
+        $scope.settings.index = itemIndex;
     };
-
-    $scope.data = ['one','two','three','four'];
-    $scope.onClick = function() {
-        $scope.className = ($scope.className === 'red') ? 'blue' : 'red';
+    $scope.aniOptionClick = function(itemIndex) {
+        $scope.settings.aniIndex = itemIndex;
+        $scope.settings.aniObj = $scope.anis[itemIndex].ani;
     };
-};
-
-var BodyControllerFunction = function($scope) {
-    $scope.partials = {
-        ngrepeat:'/partials/ngrepeat.html',
-        ngclass:'/partials/ngclass.html',
-        ngstyle:'/partials/ngstyle.html',
-        ngoptions:'/partials/ngoptions.html'
-    };
-    $scope.activePartial = '';
-    $scope.onClick = function(url) {
-        $scope.activePartial=url;
-    };
+    $scope.settings.aniObj=$scope.anis[0].ani;
+    $scope.settings.aniIndex=0;
 };
 
 app.controller('SimpleController',['$scope',SimpleControllerFunction]);
-app.controller('BodyController',['$scope',BodyControllerFunction]);
 
 

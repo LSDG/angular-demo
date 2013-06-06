@@ -1,14 +1,152 @@
-.project-container {
-    position: absolute;
-    top:10%;
-    left: 10%;
-    right: 10%;
+.home {
+    padding-top: 30px;
 }
 
-.red {
-    color:red;
+.home-content{
+    position: relative;
 }
 
-.blue {
-    color:blue;
+/*
+    Simple Fading Animation
+*/
+.homefade-leave, .homefade-enter {
+    -webkit-backface-visibility: hidden;
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -ms-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    position:absolute;
+}
+
+.homefade-enter {
+    left:0px;
+    top:0px;
+    opacity:0;
+}
+.homefade-enter.homefade-enter-active {
+    opacity:1;
+}
+
+.homefade-leave {
+    left:0px;
+    top:0px;
+    opacity:1;
+}
+.homefade-leave.homefade-leave-active {
+    opacity:0;
+}
+
+/*
+    Sliding Animation
+*/
+.homeslide-leave, .homeslide-enter {
+    -webkit-backface-visibility: hidden;
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -ms-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    position:absolute;
+}
+
+.homeslide-enter {
+    -webkit-transform: translate3d(1980px,0px,0px);
+    left:0px;
+    top:0px;
+}
+.homeslide-enter.homeslide-enter-active {
+    -webkit-transform: translate3d(0px,0px,0px);
+    left:0px;
+    top:0px;
+}
+
+.homeslide-leave {
+    -webkit-transform: translate3d(0px,0px,0px);
+    left:0px;
+    top:0px;
+}
+.homeslide-leave.homeslide-leave-active {
+    -webkit-transform: translate3d(0px,1080px,0px);
+    left:0px;
+    top:0px;
+}
+
+/*
+    Reverse Sliding Animation
+*/
+.homerslide-leave, .homerslide-enter {
+    -webkit-backface-visibility: hidden;
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -ms-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.75s;
+    position:absolute;
+}
+
+.homerslide-enter {
+    -webkit-transform: translate3d(0px,1080px,0px);
+    left:0px;
+    top:0px;
+}
+.homerslide-enter.homerslide-enter-active {
+    -webkit-transform: translate3d(0px,0px,0px);
+    left:0px;
+    top:0px;
+}
+
+.homerslide-leave {
+    -webkit-transform: translate3d(0px,0px,0px);
+    left:0px;
+    top:0px;
+}
+.homerslide-leave.homerslide-leave-active {
+    -webkit-transform: translate3d(1920px,0px,0px);
+    left:0px;
+    top:0px;
+}
+
+/*
+    Flipping Animation using 3d transformations
+*/
+.homeflip-leave, .homeflip-enter {
+    /*-webkit-backface-visibility: hidden;*/
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.0s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.0s;
+    -ms-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.0s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.0s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.0s;
+    position:absolute;
+}
+
+.homeflip-enter {
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay: 0.5s;
+    -ms-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.homeflip-enter {
+    left:0px;
+    top:0px;
+    -webkit-transform: rotate3d(1,1,0,180deg) scale3d(0.5,0.5,1);
+    opacity:0;
+}
+.homeflip-enter.homeflip-enter-active {
+    /*top:0px;*/
+    -webkit-transform: rotate3d(1,1,0,0deg) scale3d(1,1,1);
+    opacity:1;
+}
+
+.homeflip-leave {
+    left:0px;
+    top:0px;
+    -webkit-transform: rotate3d(1,1,0,0deg) scale3d(1,1,1);
+    opacity:1;
+}
+.homeflip-leave.homeflip-leave-active {
+    -webkit-transform: rotate3d(1,1,0,180deg) scale3d(0.5,0.5,1);
+    opacity:0;
 }

@@ -16,16 +16,175 @@
     <script src="scripts/angular.js"></script>
     <script src="js/app.js"></script>
 </head>
-<body ng-controller="BodyController">
-    <div class="container-fluid project-container well">
-        <div class="row-fluid">
-                <ul class="nav nav-pills">
-                    <li ng-class="(url === activePartial) ? 'active' : ''" ng-repeat="(name,url) in partials | orderBy:$index">
-                        <a href="#" ng-click="onClick(url)">{{name}}</a>
-                    </li>
-                </ul>
+<body>
+<div ng-controller="SimpleController" class="container home">
+    <div class="row">
+        <div class="span2 well">
+            <ul class="nav nav-list">
+                <li class="nav-header">Random Text</li>
+                <li ng-class="(settings.index == 0) ? 'active': ''"><a href="" ng-click="sidebarItemClick(0)">Esoteric</a></li>
+                <li ng-class="(settings.index == 1) ? 'active': ''"><a href="" ng-click="sidebarItemClick(1)">Latin</a></li>
+                <li ng-class="(settings.index == 2) ? 'active': ''"><a href="" ng-click="sidebarItemClick(2)">Pirate</a></li>
+                <li ng-class="(settings.index == 3) ? 'active': ''"><a href="" ng-click="sidebarItemClick(3)">Sci-Fi</a></li>
+                <li class="divider"></li>
+                <li class="nav-header">Active Animation</li>
+                <li ng-repeat="item in anis">
+                    <label class="radio">
+                        <input type="radio" name="optionsAnimation" value="{{item.ani}}" ng-click="aniOptionClick($index)" ng-checked="{{$index == settings.aniIndex}}">
+                        {{item.name}}
+                    </label>
+                </li>
+            </ul>
         </div>
-        <ng-include src="activePartial" ng-controller="SimpleController"></ng-include>
+        <div class="span9 home-content" ng-switch on="settings.index" ng-animate="{enter: settings.aniObj.enter, leave: settings.aniObj.leave}">
+            <section class="well" id="one" ng-switch-when="0">
+                <h2>Esoteric</h2>
+                <p class="well">
+                    WHO CAN DESIRE THE ACCEPTANCE AND ATTRACTION OF A LOVE IF HE HAS THE SPECIAL SURRENDER OF THE SUN.
+                    ALWAYS BALANCED RESPECT THE ATOMIC SOURCE.
+                    TO SOME, A SCHOLAR IS A SURRENDER FOR MEETING.
+                    DENSITY, CAREER AND A MYSTERIOUS HEAVENS OF ANGER.
+                    THE PICTORIAL MIND IS FULL OF FEAR.
+                    HELL IS NOT THE ESOTERICALLY ENLIGHTENMENT OF THE FOLLOWER.
+                    ALWAYS EARTHLY PRAISE THE CLOSEST POWER.
+                    THE LIGHT IS A WONDERFUL MONKEY.
+                    NOT HELL OR CHAOS, AVOID THE PURPOSE.
+                    THE HOME IS FULL OF ACCEPTANCE.
+                    TO SOME, A CREATOR IS A CHAOS FOR ABSORBING.
+                    ZION IS NOT THE SPIRITUALLY HEAVEN OF THE BELIEVER.
+                    THE DOER HAS PAIN, BUT NOT EVERYONE RECEIVES IT.
+                    NEVER WITNESS THE DOER, FOR YOU CAN’T STUDY IT.
+                    ONE MUST GAIN THE YOGI IN ORDER TO DESIRE THE EXPLOSION OF THE PAIN OF UNITED ASCENSION.
+                    MONEY, CHAOS AND A UNITED MONASTERY.
+                    WHO CAN WITNESS THE SUFFERING AND PAIN OF A SOURCE IF HE HAS THE BRIGHT TRUST OF THE SINNER.
+                    NOT ORDER OR NIRVANA, FEEL THE BLESSING.
+                    THE BELIEVER HAS ENLIGHTENMENT, BUT NOT EVERYONE YEARNS IT.
+                    NEVER VIEW THE SELF, FOR YOU CAN’T WITNESS IT.
+                    CONFUCIUS SAYS: THE SINNER IS LIKE THE KARMA.
+                    NEVER REMEMBER THE LOVE, FOR YOU CAN’T ABSORB IT.
+                    THE THING REALIZES.
+                    ONE MUST HANDLE THE MASTER IN ORDER TO STUDY THE INDIVIDUAL OF SYNTHETIC RESULT.
+                    TO SOME, A GURU IS A VOLUME FOR ABSORBING.
+                    THE HISTORY IS AN OCCULT SUN.
+                    ALWAYS WONDERFULLY HEAR THE TRUE ASPECT.
+                    GOING TO THE HOME DOESN’T UNDERSTAND MEDITATION ANYMORE THAN CAPTURING CREATES UNITED TANTRA.
+                    THE AFFIRMATION OF YOUR CONCLUSIONS WILL REMAIN COSMICALLY WHEN YOU ABSORB THAT ENERGY IS THE SINNER.
+                    THE SELF PRAISES.
+                    WHEN THE SELF OF FREEDOM OVERCOMES THE SILENCE OF THE MAN, THE ZEN WILL KNOW LOVE.
+                    CONFUCIUS SAYS: THE SPIRITUAL THERAPIST IS EXISTING, THE NEW FOLLOWER IS LISTENING
+                </p>
+            </section>
+            <section class="well" id="two" ng-switch-when="1">
+                <h2>Latin</h2>
+                <p class="well">
+                    CASTOR DE VELOX FUGA, DESIDERIUM COORDINATAE!
+                    SUNT PALUSES EXAMINARE FATALIS, GERMANUS CLABULAREES.
+                    AGRIPETAS POTUS!
+                    EST BREVIS MESSOR, CESARIS.
+                    NUTRIXS VOLARE IN QUADRATA!
+                    VAE.
+                    HABENA CLEMENS FRONDATOR EST.
+                    EST ALTUS DIATRIA, CESARIS.
+                    HERCLE, MENSA VARIUS!.
+                    CUR HABITIO PEREGRINATIONE?
+                    CUR ZIRBUS ASSIMILANT?
+                    HABENAS SUNT HOMOS DE MAGNUM PULCHRITUDINE.
+                    CUR ORGIA POTUS?
+                    A FALSIS, ZELUS FIDELIS FORTIS.
+                    SECULAS TRABEM IN MAGNUM LUTETIA!
+                    MESSIS VELOX DUCUNT AD CAMERARIUS HISTORIA.
+                    CUM SCUTUM OBSERVARE, OMNES CANISES IMPERIUM SECUNDUS, GRATIS VORTEXES.
+                    HYDRAS SUNT CAPIOS DE BI-COLOR LURA.
+                    NUNQUAM VITARE NUPTIA.
+                    CUR FLUCTUS TRABEM?
+                    FRONDATOR DE GRANDIS BUXUM, DEMITTO OMNIA!
+                    NUNQUAM VITARE FRONDATOR.
+                    MORI SED MIRE DUCUNT AD CLEMENS ACCOLA.
+                    VAE.
+                    RAPTUS ZELUS SED MIRE IMITARIS BYSSUS EST.
+                    CUM SAGA NOCERE, OMNES MORTEMES PROMISSIO LOTUS, PLACIDUS STELLAES.
+                    NUCLEAR VEXATUM IACERE DE VELOX LURA, IMITARI BUBO!
+                    TABES DE ALTER REPRESSOR, IMPERIUM VENTUS!
+                    CUM GALATAE CADUNT, OMNES LACTAES EXAMINARE NOBILIS, BASSUS TORUSES.
+                    FLAVUM ZIRBUS SENSIM CONVERTAMS EXTUM EST.
+                    POL, HABITIO
+                </p>
+            </section>
+            <section class="well" id="three" ng-switch-when="2">
+                <h2>Pirate</h2>
+                <p class="well">
+                    BEAUTY HO! DESIRE TO BE VANDALIZED.
+                    THE SUNNY PLANK COWARDLY HAILS THE PLUNDER.
+                    HO-HO-HO! DESOLATION OF ADVENTURE.
+                    WHERE IS THE FINE DUBLOON?
+                    AW, OLD ENDURANCE!
+                    LORD, WARM BUNG HOLE. GO TO PORT DEGAS.
+                    YO-HO-HO, ROUGH GROG. YOU WON'T VANDALIZE THE COOK ISLANDS.
+                    RUMS WAVE WITH FAITH AT THE ADDLED LA MARSA BEACH!
+                    THE FURNER GROWS PESTILENCE LIKE A CLOUDY CORSAIR.
+                    AW THERE'S NOTHING LIKE THE ADDLED GRACE LAUGHING ON THE PLANK.
+                    AW, FINE SKULL. YOU WON'T LOVE THE FREIGHTER.
+                    MIGHTY RIDDLES LEAD TO THE ADVENTURE.
+                    DAMN YER PLANK, FEED THE SCABBARD.
+                    SKIFFS FALL WITH MALARIA AT THE SCURVY RUMMAGE ISLAND!
+                    AH, RAINY COCKROACH. YOU WON'T HOIST THE COOK ISLANDS.
+                    CLOUDS WHINE ON POWER AT PORT ROYAL!
+                    WHEN THE WAVE RISES FOR CABO ROJO, ALL WENCHS PULL BIG, LIVELY PINS.
+                    ALL FREEBOOTERS HOIST BIG, DEAD TUNAS.
+                    ENDURANCE HO! MARK TO BE HAULED.
+                    BIG, OLD PANTS GREEDILY DRINK A SHINY, SMALL SHIP.
+                    GROGS WAVE FROM GREEDS LIKE BIG PEGLEGS.
+                    WAVES ARE THE WENCHS OF THE MISTY PUNISHMENT.
+                    TREASURE HO! FEAR TO BE VIEWED.
+                    YO-HO-HO, TREASURE!
+                    SING CRUELLY LIKE A SWASHBUCKLING WHALE.
+                    BELAY, YER NOT COMMANDING ME WITHOUT A GREED!
+                    HO-HO-HO! MALARIA OF GREED.
+                    NEVER HAIL A WENCH.
+                    NEVER COMMAND A PEGLEG.
+                    MOONS HOBBLE WITH COURAGE AT THE STORMY FORT CHARLES!
+                    THE FURNER LAUGHS FORTUNE LIKE A SUNNY BUNG HOLE.
+                    NEVER LEAD A HORNPIPE
+                </p>
+            </section>
+            <section class="well" id="four" ng-switch-when="3">
+                <h2>Sci-Fi</h2>
+                <p class="well">
+                    I TELEPORT THIS GALAXY, IT'S CALLED PHOTONIC PEACE.
+                    HUR'QS EXPERIMENT WITH ELLIPSE!
+                    WHEN THE GREEN PEOPLE WARPS FOR ATLANTIS TOWER, ALL PROTONS INFILTRATE ORDINARY, MODERN TELEPORTERS.
+                    FINAL SPACECRAFTS, TO THE SOLAR SPHERE.
+                    IT IS A VITAL PRESSURE, SIR.
+                    THE SPACE IS VIRTUALLY TERRIFYING.
+                    PARASITES ARE THE ALIENS OF THE HUGE SONIC SHOWER.
+                    SONIC SHOWER, PROCEDURE, AND PARALYSIS.
+                    THE MODIFICATION IS A SOLID TELEPORTER.
+                    WARP IMPRESSIVELY LIKE A FUTILE SUN.
+                    THE MOST UNUSUAL NANOMACHINE FINALLY EMPOWERS THE PLANET.
+                    ALL HANDS DIE.
+                    ALL HANDS TREMBLE, DELIGHTED METAMORPHOSIS!
+                    PHENOMENAN OF A DELIGHTED PRESSURE, ASSIMILATE THE ALIGNMENT!
+                    CREWMATES VIEW FROM MOONS LIKE INTERSTELLAR GREEN PEOPLE.
+                    MAKE IT SO, UNITED ASSIMILATION!
+                    THE KAHLESS IS WISELY SMALL.
+                    THE SUB-LIGHT MOON ACCELERATIVE OPENS THE SPACE SUIT.
+                    COLLISION COURSE AT THE CENTER THAT IS WHEN COLD PARTICLES EXPERIMENT.
+                    STARS ARE THE EMITTERS OF THE CHEMICAL GALAXY.
+                    CREWMATES MEET WITH ADVENTURE!
+                    WHERE IS THE SENIOR CREW?
+                    ENGAGE, CLOUDY LOVE!
+                    DEATH, STIGMA, AND DEFINITION.
+                    PATHWAYS ARE THE PROTONS OF THE MODERN GALAXY.
+                    CREWS ARE THE KAHLESSS OF THE HUMAN PARALYSIS.
+                    WHERE IS THE CARNIVOROUS PARTICLE?
+                    ALL CREWMATES RAISE UNITED, MOST UNUSUAL COSMONAUTS.
+                    WHERE IS THE REAL HUR'Q?
+                    THE FUTURE IS A SENIOR ADMIRAL
+                </p>
+            </section>
+        </div>
     </div>
+</div>
+
 </body>
 </html>

@@ -1,9 +1,12 @@
 var app = angular.module('MyAngularApp',[]);
 
-var SimpleController = function($scope) {
-    $scope.model = {
-        foo: 'A value for foo',
-        bar: 'A value for bar',
-        baz: 'A value for baz'
-    }
-}
+var DirectiveFactoryFunction = function() {
+    var DirectiveDefinitionObject = {
+        restrict: 'E',
+        template: '<p>This is kind of a dumb directive!!!</p>'
+    };
+
+    return DirectiveDefinitionObject;
+};
+
+app.directive('dumbDirective',DirectiveFactoryFunction);

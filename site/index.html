@@ -17,9 +17,10 @@
     <script src="js/app.js"></script>
 </head>
 <body>
-    <div class="container-fluid project-container well"  ng-controller="SimpleController">
+    <div class="container-fluid project-container well"  ng-controller="ParentController">
         <div class="row-fluid">
-            <div class="span4 offset4">
+            <div class="span4 offset4 well">
+                <h3 style="text-align:center">Parent Controller</h3>
                 <ul>
                     <li>model.foo = {{model.foo}}</li>
                     <li>model.baz = {{model.baz}}</li>
@@ -28,10 +29,45 @@
             </div>
         </div>
         <div class="row-fluid">
-            <div class="span4 offset4">
-                <input type="text" placeholder="Type something…" ng-model="model.foo">
-                <input type="text" placeholder="Type something…" ng-model="model.baz">
-                <input type="text" placeholder="Type something…" ng-model="model.bar">
+            <div class="span6 well" ng-controller="ChildControllerLeft">
+                <h3 style="text-align:center">Left Child Controller</h3>
+                <ul>
+                    <li>leftmodel.foo = {{leftmodel.foo}}</li>
+                    <li>leftmodel.baz = {{leftmodel.baz}}</li>
+                    <li>leftmodel.bar = {{leftmodel.bar}}</li>
+                </ul>
+                <h3 style="text-align:center">Parent Controller Values</h3>
+                <ul>
+                    <li>model.foo = {{model.foo}}</li>
+                    <li>model.baz = {{model.baz}}</li>
+                    <li>model.bar = {{model.bar}}</li>
+                </ul>
+                <h3 style="text-align:center">Right Controller Values</h3>
+                <ul>
+                    <li>rightmodel.foo = {{rightmodel.foo}}</li>
+                    <li>rightmodel.baz = {{rightmodel.baz}}</li>
+                    <li>rightmodel.bar = {{rightmodel.bar}}</li>
+                </ul>
+            </div>
+            <div class="span6 well" ng-controller="ChildControllerRight">
+                <h3 style="text-align:center">Right Child Controller</h3>
+                <ul>
+                    <li>rightmodel.foo = {{rightmodel.foo}}</li>
+                    <li>rightmodel.baz = {{rightmodel.baz}}</li>
+                    <li>rightmodel.bar = {{rightmodel.bar}}</li>
+                </ul>
+                <h3 style="text-align:center">Parent Controller Values</h3>
+                <ul>
+                    <li>model.foo = {{model.foo}}</li>
+                    <li>model.baz = {{model.baz}}</li>
+                    <li>model.bar = {{model.bar}}</li>
+                </ul>
+                <h3 style="text-align:center">Left Controller Values</h3>
+                <ul>
+                    <li>leftmodel.foo = {{leftmodel.foo}}</li>
+                    <li>leftmodel.baz = {{leftmodel.baz}}</li>
+                    <li>leftmodel.bar = {{leftmodel.bar}}</li>
+                </ul>
             </div>
         </div>
     </div>

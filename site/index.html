@@ -17,7 +17,7 @@
     <script src="js/app.js"></script>
 </head>
 <body>
-    <div class="container-fluid project-container well"  ng-controller="ParentController">
+    <div class="container-fluid project-container well"  ng-controller="ParentController as pCtrl">
         <div class="row-fluid">
             <div class="span4 offset4 well">
                 <h3 style="text-align:center">Parent Controller</h3>
@@ -26,6 +26,8 @@
                     <li>model.baz = {{model.baz}}</li>
                     <li>model.bar = {{model.bar}}</li>
                 </ul>
+                <input ng-model="model.foo">
+                <input ng-model="model.bar">
             </div>
         </div>
         <div class="row-fluid">
@@ -58,9 +60,9 @@
                 </ul>
                 <h3 style="text-align:center">Parent Controller Values</h3>
                 <ul>
-                    <li>model.foo = {{model.foo}}</li>
-                    <li>model.baz = {{model.baz}}</li>
-                    <li>model.bar = {{model.bar}}</li>
+                    <li>model.foo = {{parentmodel.foo}}</li>
+                    <li>model.baz = {{parentmodel.baz}}</li>
+                    <li>model.bar = {{parentmodel.bar}}</li>
                 </ul>
                 <h3 style="text-align:center">Left Controller Values</h3>
                 <ul>

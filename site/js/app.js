@@ -14,6 +14,12 @@ var ChildControllerLeft = function($scope) {
         bar: 'Left Child Value for bar',
         baz: 'Left Child Value for baz'
     };
+
+    $scope.model = {
+        foo: 'Clobbered Value for foo',
+        bar: 'Clobbered Value for bar',
+        baz: 'Clobbered Value for baz'
+    };
 };
 
 var ChildControllerRight = function($scope) {
@@ -22,4 +28,5 @@ var ChildControllerRight = function($scope) {
         bar: 'Right Child Value for bar',
         baz: 'Right Child Value for baz'
     };
+    $scope.parentmodel = $scope.model
 };

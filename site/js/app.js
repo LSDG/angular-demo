@@ -13,8 +13,8 @@ var DirectiveFactoryFunction = function() {
     return DirectiveDefinitionObject;
 };
 
-var SimpleControllerFunction = function() {
-    this.model = {
+var SimpleControllerFunction = function($scope) {
+    $scope.model = {
         foo: 'A value for foo',
         bar: 'A value for bar',
         baz: 'A value for baz'
@@ -23,4 +23,4 @@ var SimpleControllerFunction = function() {
 };
 
 app.directive('dumbDirective',DirectiveFactoryFunction);
-app.controller('SimpleController',SimpleControllerFunction);
+app.controller('SimpleController',['$scope', SimpleControllerFunction]);

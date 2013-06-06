@@ -26,7 +26,9 @@
                     <li>model.baz = {{model.baz}}</li>
                     <li>model.bar = {{model.bar}}</li>
                     <li>model.random = <span style="color:red">{{model.random}}</span></li>
+                    <li>newRandom = <span style="color:blue">{{newRandom}}</span></li>
                 </ul>
+                <input ng-model="model.foo">
             </div>
             <div class="span6 well" ng-controller="SimpleController">
                 <h3 style="text-align:center">Right Controller {{$id}}</h3>
@@ -35,7 +37,9 @@
                     <li>model.baz = {{model.baz}}</li>
                     <li>model.bar = {{model.bar}}</li>
                     <li>model.random = <span style="color:red">{{model.random}}</span></li>
+                    <li>newRandom = <span style="color:blue">{{newRandom}}</span></li>
                 </ul>
+                <button class="btn" ng-click="onClick()">Generate Random Number</button>
             </div>
         </div>
     </div>

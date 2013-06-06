@@ -1,0 +1,12 @@
+<div>
+    <h3 style="text-align:center">Widget Controller {{$id}}</h3>
+    <ul>
+        <li>model.foo = {{model.foo}}</li>
+        <li>model.baz = {{model.baz}}</li>
+        <li>model.bar = {{model.bar}}</li>
+        <li>model.random = <span style="color:red">{{model.random}}</span></li>
+        <li>newRandom = <span style="color:blue">{{newRandom}}</span></li>
+    </ul>
+    <input ng-model="model.foo">
+    <button class="btn" ng-click="onClick()">Generate Random String</button>
+</div>

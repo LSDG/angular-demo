@@ -9,27 +9,55 @@ app.value('ModelVal',
     }
 );
 
-var SimpleControllerFunction = function($scope,someothername) {
-    $scope.model = someothername;
-    $scope.newRandom = '';
+var DirectiveFactoryFunction = function() {
 
-    $scope.onClick = function() {
-        $scope.model.random = $scope.GenerateRandomNumber();
+    var DirectiveControllerFunction = function($scope) {
+        $scope.model = $scope.ngModel;
+        $scope.newRandom = '';
+
+        $scope.onClick = function() {
+            $scope.model.random = $scope.GenerateRandomNumber();
+        };
+
+        $scope.GenerateRandomNumber = function() {
+            var stringArray = [];
+
+            for (var i =0; i < 10; i++) {
+                var charCode = Math.floor(Math.random()*26);
+                var char = String.fromCharCode(charCode + 97);
+                stringArray.push(char);
+            }
+
+            return stringArray.join('');
+        };
+
+        $scope.newRandom = $scope.GenerateRandomNumber();
     };
 
-    $scope.GenerateRandomNumber = function() {
-        var stringArray = [];
-
-        for (var i =0; i < 10; i++) {
-            var charCode = Math.floor(Math.random()*26);
-            var char = String.fromCharCode(charCode + 97);
-            stringArray.push(char);
-        }
-
-        return stringArray.join('');
+    var DirectiveLinkFunction = function(scope,ele,attrs) {
     };
 
-    $scope.newRandom = $scope.GenerateRandomNumber();
+    var DirectiveDefinitionObject = {
+        restrict: 'E',
+        templateUrl:'/partials/dir.html',
+        scope: {
+            ngModel:'='
+        },
+        controller: ['$scope',DirectiveControllerFunction],
+        link: DirectiveLinkFunction
+    };
+
+    return DirectiveDefinitionObject;
 };
 
-app.controller('SimpleController',['$scope','ModelVal',SimpleControllerFunction]);
+var BasicControllerFunction = function($scope) {
+    $scope.model = {
+        foo: 'A value for foo',
+        bar: 'A value for bar',
+        baz: 'A value for baz',
+        random: ''
+    };
+};
+
+app.controller('BasicController',['$scope',BasicControllerFunction]);
+app.directive('myWidget',DirectiveFactoryFunction);

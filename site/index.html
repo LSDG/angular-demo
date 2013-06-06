@@ -16,32 +16,16 @@
     <script src="scripts/angular.js"></script>
     <script src="js/app.js"></script>
 </head>
-<body>
+<body ng-controller="BodyController">
     <div class="container-fluid project-container well">
         <div class="row-fluid">
-            <div class="span6 well" ng-controller="SimpleControllerA">
-                <h3 style="text-align:center">Left Controller {{$id}}</h3>
-                <ul>
-                    <li>model.foo = {{model.foo}}</li>
-                    <li>model.baz = {{model.baz}}</li>
-                    <li>model.bar = {{model.bar}}</li>
-                    <li>model.random = <span style="color:red">{{model.random}}</span></li>
-                    <li>newRandom = <span style="color:blue">{{newRandom}}</span></li>
+                <ul class="nav nav-pills">
+                    <li ng-class="(url === activePartial) ? 'active' : ''" ng-repeat="(name,url) in partials | orderBy:$index">
+                        <a href="#" ng-click="onClick(url)">{{name}}</a>
+                    </li>
                 </ul>
-                <input ng-model="model.foo">
-            </div>
-            <div class="span6 well" ng-controller="SimpleControllerB">
-                <h3 style="text-align:center">Right Controller {{$id}}</h3>
-                <ul>
-                    <li>model.foo = {{model.foo}}</li>
-                    <li>model.baz = {{model.baz}}</li>
-                    <li>model.bar = {{model.bar}}</li>
-                    <li>model.random = <span style="color:red">{{model.random}}</span></li>
-                    <li>newRandom = <span style="color:blue">{{newRandom}}</span></li>
-                </ul>
-                <button class="btn" ng-click="onClick()">Generate Random Number</button>
-            </div>
         </div>
+        <ng-include src="activePartial" ng-controller="SimpleController"></ng-include>
     </div>
 </body>
 </html>

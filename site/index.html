@@ -20,17 +20,12 @@
     <div class="container-fluid project-container well" ng-controller="SimpleController">
         <div class="row-fluid">
             <div class="span8 offset2 well">
-                <ul>
-                    <li>model.foo = {{model.foo}}</li>
-                    <li>model.baz = {{model.baz}}</li>
-                    <li>model.bar = {{model.bar}}</li>
-                </ul>
-                <input ng-model="model.foo">
+                <input ng-model="len">
             </div>
         </div>
         <div class="row-fluid">
             <div class="span8 offset2 well">
-                <dumb-directive local-name="{{model.foo}}" bound-name="model.foo"></dumb-directive>
+                <random-text string-length="{{len}}"></random-text>
             </div>
         </div>
     </div>

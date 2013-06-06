@@ -1,13 +1,42 @@
 var app = angular.module('MyAngularApp',[]);
 
 var DirectiveFactoryFunction = function() {
-    var DirectiveLinkFunction = function(scope,ele,attrs) {
 
+    var genString = function(length) {
+        var stringArray = [];
+        var len = parseInt(length);
+        var curMod = Math.floor(Math.random()*5) + 5;
+
+        for (var i =0; i < len; i++) {
+            var charCode = Math.floor(Math.random()*26);
+            if (charCode % curMod === 0) {
+                curMod = Math.floor(Math.random()*5) + 5;
+                stringArray.push(' ');
+            }
+            var char = String.fromCharCode(charCode + 97);
+            stringArray.push(char);
+        }
+
+        return stringArray.join('');
+    };
+
+    var DirectiveLinkFunction = function(scope,ele,attrs) {
+        scope.randomString = genString(scope.stringLength);
+
+        scope.$watch('stringLength', function(newVal,oldVal) {
+            if (newVal === oldVal) {
+                return;
+            }
+            scope.randomString = genString(scope.stringLength);
+        });
     };
 
     var DirectiveDefinitionObject = {
         restrict: 'E',
-        template: '<span>{{randomString}}</span>',
+        template: '<p>{{randomString}}</p>',
+        scope: {
+            stringLength:'@'
+        },
         link: DirectiveLinkFunction
     };
 
@@ -15,13 +44,8 @@ var DirectiveFactoryFunction = function() {
 };
 
 var SimpleControllerFunction = function($scope) {
-    $scope.model = {
-        foo: 'A value for foo',
-        bar: 'A value for bar',
-        baz: 'A value for baz'
-    };
-
+    $scope.len = 10;
 };
 
-app.directive('dumbDirective',DirectiveFactoryFunction);
+app.directive('randomText',DirectiveFactoryFunction);
 app.controller('SimpleController',['$scope', SimpleControllerFunction]);
